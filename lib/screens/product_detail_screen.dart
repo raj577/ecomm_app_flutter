@@ -1,3 +1,4 @@
+// lib/screens/product_detail_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/cart_item.dart';
@@ -13,7 +14,7 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Details')),
+      appBar: AppBar(title: const Text('Product Details')),
       body: Consumer<CartProvider>(
         builder: (context, cart, _) {
           final inCartQty = cart.items
@@ -60,7 +61,7 @@ class ProductDetailScreen extends StatelessWidget {
                 if (inCartQty > 0)
                   Padding(
                     padding: const EdgeInsets.only(top: 8),
-                    child: Text('In cart: $inCartQty', style: const TextStyle(color: Colors.blue)),
+                    child: Text('✓ Added to cart', style: const TextStyle(color: Colors.green)),
                   ),
               ],
             ),
