@@ -15,35 +15,40 @@ class CartProvider with ChangeNotifier {
   double get grandTotal => subtotal - totalDiscount + tax;
 
   void addItem(Product product) {
-    final existingItem = _items.firstWhere(
-          (item) => item.product.id == product.id,
-      orElse: () => CartItem(product: product, quantity: 0),
-    );
-
-    if (existingItem.quantity == 0) {
-      if (product.stock <= 0) return;
-      final maxQty = product.maxQuantity.clamp(1, product.stock);
-      _items.add(CartItem(product: product, quantity: 1));
+    final existingIndex = _items.indexWhere((item) => item.product.id == product.id);
+    if (existingIndex == -1) {
+      if (product.stock > 0) {
+        _items.add(CartItem(product: product, quantity: 1));
+        notifyListeners();
+      }
     } else {
-      if (existingItem.quantity >= product.stock) return;
-      existingItem.quantity += 1;
+      updateQuantity(product, _items[existingIndex].quantity + 1);
     }
-    notifyListeners();
+  }
+
+  void updateQuantity(Product product, int newQuantity) {
+    final index = _items.indexWhere((item) => item.product.id == product.id);
+
+    if (index == -1) {
+      // First time adding via +/- buttons
+      if (newQuantity > 0 && newQuantity <= product.stock && newQuantity <= product.maxQuantity) {
+        _items.add(CartItem(product: product, quantity: newQuantity));
+        notifyListeners();
+      }
+    } else {
+      if (newQuantity <= 0) {
+        _items.removeAt(index);
+      } else {
+        final clamped = newQuantity.clamp(1, product.stock).clamp(1, product.maxQuantity);
+        _items[index].quantity = clamped;
+      }
+      notifyListeners();
+    }
   }
 
   void removeItem(int productId) {
     _items.removeWhere((item) => item.product.id == productId);
     notifyListeners();
-  }
-
-  void updateQuantity(int productId, int newQuantity) {
-    final item = _items.firstWhere((i) => i.product.id == productId);
-    if (newQuantity <= 0) {
-      removeItem(productId);
-    } else if (newQuantity <= item.product.stock && newQuantity <= item.product.maxQuantity) {
-      item.quantity = newQuantity;
-      notifyListeners();
-    }
   }
 
   void clear() {
