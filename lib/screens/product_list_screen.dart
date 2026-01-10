@@ -24,7 +24,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Products'),
         actions: [
-          // ✅ Cart icon with badge showing item count
           IconButton(
             onPressed: () => Navigator.pushNamed(context, '/cart'),
             icon: Consumer<CartProvider>(
