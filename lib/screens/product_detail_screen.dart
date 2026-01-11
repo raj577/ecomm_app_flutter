@@ -15,21 +15,22 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Product Details'),
-      actions: [
-        IconButton(onPressed: () {
-          Navigator.pushNamed(context, '/cart');
-        }, icon: Consumer<CartProvider>(
-      builder: (context, cart, child) {
-        return Badge(
-          label: Text('${cart.totalCount}'),
-          child: const Icon(Icons.shopping_cart),
-        );
-      },
-    ),
-        ),
-      ],
+    //   actions: [
+    //     IconButton(onPressed: () {
+    //       Navigator.pushNamed(context, '/cart');
+    //     }, icon: Consumer<CartProvider>(
+    //   builder: (context, cart, child) {
+    //     return Badge(
+    //       label: Text('${cart.totalCount}'),
+    //       child: const Icon(Icons.shopping_cart),
+    //     );
+    //   },
+    // ),
+    //     ),
+    //   ],
 
       ),
+
       body: Consumer<CartProvider>(
         builder: (context, cart, _) {
           final inCartQty = cart.items
@@ -80,11 +81,26 @@ class ProductDetailScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 8),
                     child: Text('✓ Added to cart', style: const TextStyle(color: Colors.green)),
                   ),
+
               ],
             ),
           );
         },
       ),
+      floatingActionButton: Consumer<CartProvider>(
+        builder: (context, cart, child) {
+          return FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            },
+            child: Badge(
+              label: Text('${cart.totalCount}'),
+              child: const Icon(Icons.shopping_cart),
+            ),
+          );
+        },
+      ),
+
     );
   }
 }
