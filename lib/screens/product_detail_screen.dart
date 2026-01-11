@@ -44,6 +44,8 @@ class ProductDetailScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(product.description),
                 const SizedBox(height: 24),
+                Text("Max Quantity available " + product.maxQuantity.toString(),
+                style: TextStyle(fontWeight: FontWeight.bold),),
                 Row(
                   children: [
                     const Text('Quantity: '),
