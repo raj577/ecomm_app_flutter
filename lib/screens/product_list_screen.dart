@@ -41,7 +41,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
         onRefresh: () => context.read<ProductProvider>().loadProducts(forceRefresh: true),
         child: Consumer<ProductProvider>(
           builder: (context, provider, _) {
-            // ✅ FIX: Use local variable to allow null promotion
             final products = provider.products;
 
             if (provider.isLoading && (products == null || products.isEmpty)) {
@@ -70,7 +69,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
             return ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
-                return ProductCard(product: products[index]); // ✅ Now recognized
+                return ProductCard(product: products[index]);
               },
             );
           },

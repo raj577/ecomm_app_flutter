@@ -1,57 +1,110 @@
-# 🛒 Flutter E-Commerce Mini App
+# Flutter E‑Commerce Demo App
 
-A lightweight e-commerce application developed as a **technical take-home assignment**, focusing on clean architecture, state management, and reliable business logic.
+## Overview
 
----
+This project is a **Flutter-based E‑Commerce demo application** built as part of an interview assignment. The goal of the app is to demonstrate **clean architecture, state management using Provider, reusable UI components, and basic business logic** such as product listing, cart management, and price calculations.
 
-## 📖 Overview
-The primary goal of this project is to demonstrate a solid understanding of **Flutter fundamentals**, specifically focusing on:
-* **Separation of concerns** (UI vs. Logic).
-* **State management** using the Provider pattern.
-* **Asynchronous data handling** via REST APIs.
-
-The app allows users to browse products, view details, manage a shopping cart, and simulate a checkout process.
 
 ---
 
-## 🛠 Tech Stack
-* **Framework:** [Flutter](https://flutter.dev/) (Stable)
-* **Language:** Dart (Null Safety)
-* **State Management:** [Provider](https://pub.dev/packages/provider) (ChangeNotifier)
-* **API:** [Fake Store API](https://fakestoreapi.com/)
-* **Target Platform:** Android
+
+## Project Structure
+
+```
+lib/
+│── main.dart
+│
+├── models/
+│   ├── product.dart
+│   └── cart_item.dart
+│
+├── providers/
+│   ├── product_provider.dart
+│   └── cart_provider.dart
+│
+├── screens/
+│   ├── product_list_screen.dart
+│   ├── product_detail_screen.dart
+│   └── cart_screen.dart
+│
+├── widgets/
+│   ├── product_card.dart
+│   └── cart_item_tile.dart
+│
+└── services/
+    └── mock_api_service.dart
+```
 
 ---
 
-## 🏗 Architecture
-The project follows a **Layered Architecture** to ensure the code is maintainable and testable:
+## Architecture
 
-1.  **UI Layer:** Purely declarative widgets; contains no business logic.
-2.  **Provider Layer:** Manages state, handles business logic, and coordinates between UI and Services.
-3.  **Service Layer:** Handles API communication and data fetching.
-4.  **Model Layer:** Data structures and JSON serialization.
+### 1. State Management – Provider
 
----
+* **Why Provider?**
 
-## ✨ Features & Business Logic
-* **Product Fetching:** Fetches real-time data with loading and error state handling.
-* **Cart Management:** Add/remove items and adjust quantities.
-* **Complex Calculations:** Logic handled within `CartProvider` including:
-    * Subtotal calculation.
-    * Dynamic discount application.
-    * **5% Tax** calculation.
-    * Final Grand Total.
+    * Simple and lightweight
+    * Recommended by Flutter team for small–medium apps
+    * Easy to understand and explain in interviews
+
+* Providers used:
+
+    * `ProductProvider` → handles product fetching and loading states
+    * `CartProvider` → manages cart items, totals, and business rules
 
 ---
 
-## 🚀 Getting Started
+### 2. Separation of Business Logic
+
+* **Models** → Plain Dart classes (`Product`, `CartItem`)
+* **Providers** → Business logic and state
+* **Screens** → Page‑level UI
+* **Widgets** → Reusable UI components
+
+
+---
 
 ### Prerequisites
-* Flutter SDK (Stable)
-* Android Studio / VS Code
-* An Android Emulator or Physical Device
 
-### Installation
-1. **Clone the repository:**
-   ```bash
-   git clone <your-repo-url>
+* Flutter SDK installed
+* Android Studio
+* Emulator or physical device
+
+### Steps
+
+```bash
+flutter clean
+flutter pub get
+flutter run
+```
+
+---
+
+## Known Limitations
+
+* No authentication or user accounts
+* No persistent storage (cart resets on restart)
+* No catched to show when network not available
+* No logged in user to show recomendation
+
+
+---
+
+## Possible Improvements
+* Add local persistence using SharedPreferences
+* Implement Product search
+* A Splash Screen can be used
+* Sort product by value
+* Category Filteration
+* Dark Mode can be implemented
+
+
+
+---
+
+
+
+## Author
+
+**Rajat**
+
