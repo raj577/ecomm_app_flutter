@@ -90,7 +90,7 @@ flutter run
 ## Possible Improvements
 * Add local persistence using SharedPreferences
 * Implement Product search
-* A Splash Screen can be used
+* A Splash Screen can be used to fetch the data from api before product detail screen
 * Sort product by value
 * Category Filteration
 * Dark Mode can be implemented
