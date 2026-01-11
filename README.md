@@ -1,10 +1,4 @@
 # Flutter E‑Commerce Demo App
-
-## Overview
-
-This project is a **Flutter-based E‑Commerce demo application** built as part of an interview assignment. The goal of the app is to demonstrate **clean architecture, state management using Provider, reusable UI components, and basic business logic** such as product listing, cart management, and price calculations.
-
-
 ---
 
 
