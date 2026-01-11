@@ -1,7 +1,7 @@
 ## Project Structure
 
 ```
-```
+
 lib/
 │── main.dart
 │
