@@ -58,7 +58,6 @@ class ProductCard extends StatelessWidget {
                         ),
                       ),
                     const SizedBox(height: 4),
-                    // ✅ FIXED: semicolon → comma
                     Text(
                       product.isInStock ? 'In Stock' : 'Out of Stock',
                       style: TextStyle(
