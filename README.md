@@ -1,4 +1,3 @@
-# Flutter E‑Commerce Demo App
 ---
 
 
