@@ -94,7 +94,7 @@ flutter run
 
 You can download and test the APK from the link below:
 
-👉 **[Download APK](https://drive.google.com/file/d/1N_fAEJO02sN63webxFtdYP6IsGOsalQX/view?usp=drive_link)**
+**[Download APK](https://drive.google.com/file/d/1N_fAEJO02sN63webxFtdYP6IsGOsalQX/view?usp=drive_link)**
 
 ## Author
 
