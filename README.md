@@ -41,13 +41,10 @@ lib/
 
 ### 1. State Management – Provider
 
-* **Why Provider?**
+* **Used Provider as per assignment**
 
-    * Simple and lightweight
-    * Recommended by Flutter team for small–medium apps
-    * Easy to understand and explain in interviews
 
-* Providers used:
+*Providers used:
 
     * `ProductProvider` → handles product fetching and loading states
     * `CartProvider` → manages cart items, totals, and business rules
