@@ -24,6 +24,9 @@ class ProductProvider with ChangeNotifier {
       _products = fetched.map((p){
         int stock = p.id % 3 == 0 ? 0 : 20;
         double? disc = p.id % 4 == 0 ? 15.0 : null;
+        int maxqty = stock == 0 ? 0 : stock;
+
+
         return Product(
           id: p.id,
           title: p.title,
@@ -33,6 +36,7 @@ class ProductProvider with ChangeNotifier {
           category: p.category,
           stock: stock,
           discountPercent: disc,
+          maxQuantity: maxqty,
         );
       }).toList();
     }catch(e){
@@ -43,5 +47,3 @@ class ProductProvider with ChangeNotifier {
     }
   }
 }
-
-

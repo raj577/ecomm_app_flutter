@@ -30,7 +30,6 @@ class CartProvider with ChangeNotifier {
     final index = _items.indexWhere((item) => item.product.id == product.id);
 
     if (index == -1) {
-      // First time adding via +/- buttons
       if (newQuantity > 0 && newQuantity <= product.stock && newQuantity <= product.maxQuantity) {
         _items.add(CartItem(product: product, quantity: newQuantity));
         notifyListeners();

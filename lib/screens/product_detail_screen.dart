@@ -14,7 +14,22 @@ class ProductDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Product Details')),
+      appBar: AppBar(title: const Text('Product Details'),
+      actions: [
+        IconButton(onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        }, icon: Consumer<CartProvider>(
+      builder: (context, cart, child) {
+        return Badge(
+          label: Text('${cart.totalCount}'),
+          child: const Icon(Icons.shopping_cart),
+        );
+      },
+    ),
+        ),
+      ],
+
+      ),
       body: Consumer<CartProvider>(
         builder: (context, cart, _) {
           final inCartQty = cart.items
@@ -29,7 +44,7 @@ class ProductDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.network(product.image, height: 200, fit: BoxFit.contain),
+                Center(child: Image.network(product.image, height: 200, fit: BoxFit.contain)),
                 const SizedBox(height: 16),
                 Text(product.title, style: Theme.of(context).textTheme.headlineSmall),
                 const SizedBox(height: 8),

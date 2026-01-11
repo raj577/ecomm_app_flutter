@@ -1,28 +1,30 @@
 ## Project Structure
 
 ```
+```
 lib/
 │── main.dart
 │
 ├── models/
-│   ├── product.dart
-│   └── cart_item.dart
+│ ├── product.dart
+│ └── cart_item.dart
 │
 ├── providers/
-│   ├── product_provider.dart
-│   └── cart_provider.dart
+│ ├── product_provider.dart
+│ └── cart_provider.dart
 │
 ├── screens/
-│   ├── product_list_screen.dart
-│   ├── product_detail_screen.dart
-│   └── cart_screen.dart
+│ ├── product_list_screen.dart
+│ ├── product_detail_screen.dart
+│ ├── cart_screen.dart
+│ └── checkout_screen.dart
+│
+├── services/
+│ └── api_service.dart
 │
 ├── widgets/
-│   ├── product_card.dart
-│   └── cart_item_tile.dart
-│
-└── services/
-    └── mock_api_service.dart
+│ ├── product_card.dart
+│ └── quantity_selector.dart
 ```
 
 ---
