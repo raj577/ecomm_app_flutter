@@ -24,7 +24,7 @@ class CheckoutScreen extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton(
               onPressed: () async {
-                final success = Random().nextBool(); // Simulate 50% success
+                final success = Random().nextBool();
                 if (success) {
                   context.read<CartProvider>().clear();
                   ScaffoldMessenger.of(context).showSnackBar(
